@@ -98,7 +98,7 @@ public class OrganizationController extends BaseController {
         return null;
     }
 
-    @ApiOperation(value = "Search Organization", notes = "Allows searching for Organizations using Apache lucene query syntax." + SEARCH_FIELDS)
+    @ApiOperation(value = "Search Organization", notes = "Allows searching for Organizations using Apache lucene query syntax. A blank query string is the equivalent of Get All Organizations." + SEARCH_FIELDS)
     @PreAuthorize("hasAuthority('SCOPE_search:organizations')")
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ApiResponse search(@RequestParam("query") String query, @RequestParam("sortColumn") String sortColumn,

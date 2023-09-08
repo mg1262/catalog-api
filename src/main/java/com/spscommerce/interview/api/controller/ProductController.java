@@ -96,7 +96,7 @@ public class ProductController extends BaseController {
         return null;
     }
 
-    @ApiOperation(value = "Search Product", notes = "Allows searching for Products using Apache lucene query syntax." + SEARCH_FIELDS)
+    @ApiOperation(value = "Search Product", notes = "Allows searching for Products using Apache lucene query syntax. A blank query string is the equivalent of Get All Products." + SEARCH_FIELDS)
     @PreAuthorize("hasAuthority('SCOPE_search:products')")
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ApiResponse search(@RequestParam("query") String query, @RequestParam("sortColumn") String sortColumn,

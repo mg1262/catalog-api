@@ -103,7 +103,7 @@ public class SubscriptionController extends BaseController {
         return null;
     }
 
-    @ApiOperation(value = "Search Subscription", notes = "Allows searching for Subscriptions using Apache lucene query syntax." + SEARCH_FIELDS)
+    @ApiOperation(value = "Search Subscription", notes = "Allows searching for Subscriptions using Apache lucene query syntax. A blank query string is the equivalent of Get All Subscriptions." + SEARCH_FIELDS)
     @PreAuthorize("hasAuthority('SCOPE_search:subscriptions')")
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ApiResponse search(@RequestParam("query") String query, @RequestParam("sortColumn") String sortColumn,
